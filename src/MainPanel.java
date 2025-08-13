@@ -5,8 +5,12 @@ public class MainPanel extends JPanel {
     Color mainColor = new Color(36,42,97);
     Font questionFont = new Font("Times New Roman", Font.BOLD, 20);
     Font answerFont = new Font("Times New Roman", Font.PLAIN, 16);
+    QuestionList questions;
 
     public MainPanel() {
+        questions = new QuestionList();
+        Question question = questions.getRandomQuestion();
+
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -15,7 +19,7 @@ public class MainPanel extends JPanel {
         innerPanel.setBackground(new Color(0, 0, 0, 0));
         innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
         //components
-        JTextArea questionText = new JTextArea("What is the difference between an abstract class and an interface?");
+        JTextArea questionText = new JTextArea(question.getQuestion());
         questionText.setBackground(new Color(0, 0, 0, 0));
         questionText.setFont(questionFont);
         questionText.setForeground(Color.white);
@@ -23,7 +27,7 @@ public class MainPanel extends JPanel {
         questionText.setWrapStyleWord(true);
         questionText.setMaximumSize(new Dimension(600, 200));
         questionText.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JTextArea answerText = new JTextArea("An abstract class can have both abstract and concrete methods, while an interface can only have abstract methods. A class can implement multiple interfaces but can extend only one abstract class.");
+        JTextArea answerText = new JTextArea(question.getAnswer());
         answerText.setBackground(new Color(0, 0, 0, 0));
         answerText.setFont(answerFont);
         answerText.setForeground(Color.white);
@@ -62,6 +66,10 @@ public class MainPanel extends JPanel {
         //this.add(answerText);
         //this.add(Box.createVerticalStrut(20));
         //this.add(btnPanel);
+    }
+
+    public void showQuestion() {
+
     }
 
 }
