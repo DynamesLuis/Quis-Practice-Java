@@ -21,8 +21,10 @@ public class MainPanel extends JPanel {
         question = questions.getRandomQuestion();
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.weightx = 1.0;
         innerPanel = new JPanel();
         innerPanel.setBackground(mainColor);
         innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
@@ -89,7 +91,8 @@ public class MainPanel extends JPanel {
         innerPanel.add(btnPanel);
 
         this.setBackground(mainColor);
-        this.add(innerPanel);
+        this.add(innerPanel, gbc);
+        //this.add(innerPanel);
     }
 
 }
