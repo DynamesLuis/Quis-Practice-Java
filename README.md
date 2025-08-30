@@ -13,6 +13,7 @@ This project helps me practice the 50 most important Java questions, reinforcing
 
 ## 🛠️ Technologies Used
 - Java version: 17  
+- Swing
 
 ---
 
